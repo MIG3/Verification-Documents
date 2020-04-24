@@ -1,0 +1,57 @@
+﻿@model VerificationDocs.Domain.Entities.StyleP
+
+@{
+    ViewBag.Title = "Админ панель: редактирование стилей абзацев";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    //проверка достоверности на стороне клиента только для представления - отключена
+    HtmlHelper.ClientValidationEnabled = false;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+}
+
+<!DOCTYPE html>
+<div class="panel">
+    <div class="panel-heading">
+        <h2>Редактирование абзаца «@Model.ParagraphID»</h2>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Admin"))
+    {
+        <div class="panel-body">
+            @Html.HiddenFor(m => m.ParagraphID)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.PropertyName != "ParagraphID")
+                {
+                    @*Вспомогательные методы Html.TextBox() и Html.TextArea(), которые используются
+                    в файле представления Edit.cshtml для создания элементов <input> и <textarea>, 
+                    будут применяться инфраструктурой MVC Framework в целях сигнализации о наличии проблем с проверкой.*@
+                    <div class="form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @if (property.PropertyName == "Description")
+                        { 
+                            @Html.TextArea(property.PropertyName, null,
+                             new { @class = "form-control", rows = 5 })
+                        }
+                        else
+                        {
+                            @Html.TextBox(property.PropertyName, null,
+                             new { @class = "form-control" })
+                        }
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                } 
+            }
+        </div>
+        @*Данный метод запрашивает у инфраструктуры MVC Framework создание
+            интерфейса редактирования, и она делает это за счет инспектирования типа модели*@
+        @*@Html.EditorForModel()*@
+        <div class="panel-footer">
+            <input type="submit" value="Сохранить" class="btn btn-primary" />
+            @Html.ActionLink("Отменить изменения и вернуться к списку", "Index", null, new
+            {
+                @class = "btn btn-default"
+            })
+        </div>
+    }
+
+</div>

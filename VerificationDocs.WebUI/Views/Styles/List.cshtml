@@ -1,0 +1,23 @@
+﻿@using VerificationDocs.Domain.Entities
+@model IEnumerable<StyleP>
+
+@{
+    ViewBag.Title = "Стили абзацев";
+}
+
+@foreach (StyleP style in Model)
+{
+    <div>
+        <h3>@style.ParagraphID.ToString("# абзац")</h3>
+        <p>@style.Name</p>
+        <p>@style.Font</p>
+        <p>@style.Size</p>
+        <p>@style.Inscription</p>
+        <p>@style.Color</p>
+        <p>@style.Alignment</p>
+        <p>@style.LeftIndention.ToString("Отступ по левому краю: #")</p>
+        <p>@style.RightIndention.ToString("Отступ по правому краю: #")</p>
+    </div>
+    <hr />
+}
+

@@ -1,0 +1,140 @@
+﻿@{
+    ViewBag.Title = "Main Page";
+}
+
+<style>
+    .JumboHeaderImg {
+        background-image: url(../../Pictures/robot-hi.png);
+        background-size: cover;
+    }
+    .ow-feature .ow-content {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    }
+    .m-area-heading {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    }
+    div.scrollup {
+    position: fixed; 
+    color: #fff; /* цвет текста */
+    background-color: #286090; 
+    right: 20px; 
+    bottom: 0px; 
+    padding: 4px 10px; /* отступы до содержимого блока */
+    font-size: 20px; /* размер шрифта (иконки) */
+    border-top-left-radius: 4px; 
+    border-top-right-radius: 4px; 
+    cursor: pointer; 
+    display: none; 
+    text-align: center;
+    }
+    div.scrollup:hover {
+    background-color: #000; /* цвет заднего фона при наведении */
+    }
+</style>
+
+
+<div class="jumbotron JumboHeaderImg">
+    <div class="container">
+        <h1 class="display-4 text-dark">Система верификации</h1>
+        <p class="lead text-dark">Загружаешь документ - получаешь результат!</p>
+        <p><a href="#" class="btn btn-primary btn-lg rounded-pill" role="button">Начать &raquo;</a></p> @*rounded-pill - закругление углов*@
+    </div>
+</div>
+
+
+<main role="main">
+    <div class="x-clearfix" aria-hidden="true">
+        <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:10px;" class=""></div>
+        <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:10px;" class=""></div>
+    </div>
+    <div>
+        <div class=" white Center Slim " data-grid="col-12">
+            <section class="m-area-heading">
+                <h2 class="c-heading-3 ow-headinghelper-1 ">Принцип работы</h2>
+                <div data-grid="col-12"></div>
+            </section>
+        </div>
+    </div>
+    <div class="x-clearfix" aria-hidden="true">
+        <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:20px;" class=""></div>
+        <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:20px;" class=""></div>
+    </div>
+    <div id="description" class="row">
+        <div class="col-lg-3">
+            <img class="rounded mx-auto d-block" src="~/Icons/blueprint_upload.svg" alt="Generic placeholder image" width="70" height="70">
+            <h2 class="text-center">Загрузка</h2>
+            <p class="text-center">Пользователь загружает файл для проверки содержимого.</p>
+        </div>
+        <div class="col-lg-3">
+            <img class="rounded mx-auto d-block" src="~/Icons/blueprint_search.svg" alt="Generic placeholder image" width="70" height="70">
+            <h2 class="text-center">Проверка</h2>
+            <p class="text-center">Система ищет ошибки в оформлении или в правильности сортировки литературы.</p>
+        </div>
+        <div class="col-lg-3">
+            <img class="rounded mx-auto d-block" src="~/Icons/blueprint_write.svg" alt="Generic placeholder image" width="70" height="70">
+            <h2 class="text-center">Изменение</h2>
+            <p class="text-center">Система выдаёт сообщение об ошибках или вносит изменения автоматически.</p>
+        </div>
+        <div class="col-lg-3">
+            <img class="rounded mx-auto d-block" src="~/Icons/blueprint_download.svg" alt="Generic placeholder image" width="70" height="70">
+            <h2 class="text-center">Сохранение</h2>
+            <p class="text-center">Пользователь сохраняет файл с ошибками или изменённый документ.</p>
+        </div>
+    </div>
+
+    <hr class="featurette-divider"> @*разделение страницы*@
+    <div class="x-clearfix" aria-hidden="true">
+        <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+        <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+    </div>
+    <div>
+        <div id="advantages" class=" white Center Slim " data-grid="col-12">
+            <section class="m-area-heading">
+                <h2 class="c-heading-3 ow-headinghelper-1 ">Преимущества</h2>
+                <div data-grid="col-12"></div>
+            </section>
+        </div>
+    </div>
+
+    <div class="row featurette">
+        <div class="col-lg-2"></div>
+        <div class="col-md-5">
+            <h3 class="featurette-heading">Доступность. <span class="text-muted"></span></h3>
+            <p class="lead">Система доступна с любого компьютера через браузер (в том числе и со смартфонов и планшетов на мобильных ОС) из любой точки мира, если есть доступ в интернет.</p>
+        </div>
+        <div class="col-md-3">
+            <img class="featurette-image img-fluid mx-auto" src="~/Pictures/—Pngtree—,internet network.png" alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider"> @*разделение страницы*@
+
+    <div class="row featurette">
+        <div class="col-lg-2"></div>
+        <div class="col-md-5 order-md-2">
+            <h3 class="featurette-heading">Оптимизация работы. <span class="text-muted"></span></h3>
+            <p class="lead">Система позволяет меньше тратить времени на подготовку отчётных документов, их правильное составление и оформление. Проверяет оформление различных документов в зависимости от их типа.</p>
+        </div>
+        <div class="col-md-3 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" src="~/Pictures/—Pngtree—game gaming start mobile phone_5264300.png" alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider"> @*разделение страницы*@
+
+    <div class="row featurette">
+        <div class="col-lg-2"></div>
+        <div class="col-md-5">
+            <h3 class="featurette-heading">Отзывы. <span class="text-muted"></span></h3>
+            <p class="lead">Большая часть опрошенных положительно отзывается о данной системе. Часть требует её усовершенствования. Это и студенты разных вузов и колледжей, преподаватели МАИ.</p>
+        </div>
+        <div class="col-md-3">
+            <img class="featurette-image img-fluid mx-auto" src="~/Pictures/—Pngtree—like .png" alt="Generic placeholder image">
+        </div>
+    </div>
+    <hr class="featurette-divider"> @*разделение страницы*@
+</main>
+
