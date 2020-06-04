@@ -1,0 +1,166 @@
+﻿@model IEnumerable<VerificationDocs.Domain.Entities.DocumentStructure>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<script src="~/Scripts/popper.min.js"></script>
+<script src="~/Scripts/popper.js"></script>
+<script src="~/Scripts/bootstrap.bundle.js"></script>
+<style>
+    .m-area-heading {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+    }
+
+    .login-block {
+        background-color: #fff;
+        padding: 60px;
+        -webkit-box-shadow: 0 3px 50px 0 rgba(0,0,0,.1);
+        box-shadow: 0 3px 50px 0 rgba(0,0,0,.1);
+        text-align: center;
+        border-radius: 5px
+    }
+
+        .login-block h*, .login-block h6 {
+            font-family: Open Sans,sans-serif;
+            color: #96a2b2;
+            letter-spacing: 1px
+        }
+
+        .login-block h* {
+            font-size: 22px;
+            margin-bottom: 60px;
+            margin-top: 40px
+        }
+
+        .login-block .input-group-addon {
+            color: #29aafe;
+            font-size: 19px;
+            opacity: .5
+        }
+
+        .login-block .btn-block {
+            margin-top: 30px;
+            padding: 15px;
+            background: #1a5486;
+            border-color: #29aafe;
+        }
+
+        .login-block .hr-xs {
+            margin-top: 5px;
+            margin-bottom: 5px
+        }
+</style>
+
+
+@*Html.BeginForm генерирует форму. Первые два параметра указывают,
+    что форма будет обрабатываться на сервере методом Upload контроллера CheckFilesController.*@
+@*Благодаря установке атрибута формы enctype="multipart/form-data" браузер будет знать, что надо загрузить файл.*@
+<div class="panel">
+    <div>
+        <div class="grey" data-grid="col-12">
+            <nav class=" my-md-1 mr-md-1">
+                <a class="btn btn-outline-primary rounded-pill" href="https://localhost:44343/">Выход</a>
+            </nav>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class=" white Center Slim " data-grid="col-12">
+            <section class="m-area-heading">
+                <h2 class="c-heading-3 ow-headinghelper-1 ">Работа с документами</h2>
+                <div data-grid="col-12"></div>
+            </section>
+        </div>
+        <hr class="featurette-divider">
+        <div class="x-clearfix" aria-hidden="true">
+            <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+            <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+        </div>
+
+        @using (Html.BeginForm("UploadFileToCheck",
+                               "CheckFiles",
+                               FormMethod.Post,
+                               new { enctype = "multipart/Form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-row">
+                <div class="col-lg-1"></div>
+                <div class="form-group col-md-5">
+                    <div class="control-label col-md-12">
+                        <label for="file">Загрузить файл для проверки:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="file" name="file" id="file" style="width:80%" />
+                    </div>
+
+                </div>
+                <div class="col-md-5">
+                    <h3>Проверка оформления</h3>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-1"></div>
+                <div class="dropdown col-md-5">
+                    <div class="col-md-offset-2 col-md-12">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Проверить
+                        </button>
+                        <div class="col-md-offset-5 dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="submit" name="action" value="BKP">ВКР</button>
+                            <button class="dropdown-item" type="submit" name="action" value="Report">Рецензия</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="x-clearfix" aria-hidden="true">
+            <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+            <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="x-clearfix" aria-hidden="true">
+            <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+            <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+        </div>
+        @using (Html.BeginForm("UploadFileToSort",
+                               "CheckFiles",
+                                FormMethod.Post,
+                                new { enctype = "multipart/Form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-row">
+                <div class="col-lg-1"></div>
+                <div class="form-group col-md-5">
+                    <div class="control-label col-md-12">
+                        <label for="file">Загрузить файл для сортировки:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="file" name="file" id="file" style="width:80%" />
+                    </div>
+
+                </div>
+                <div class="col-md-5">
+                    <h3>Сортировка списка литературы</h3>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-1"></div>
+                <div class="form-group col-md-5">
+                    <div class="col-md-offset-2 col-md-12">
+                        <input type="submit" value="Отсортировать" class="btn btn-outline-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="x-clearfix" aria-hidden="true">
+            <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+            <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+</div>
