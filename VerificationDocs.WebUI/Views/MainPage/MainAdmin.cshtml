@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "Панель администратора.";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+<style>
+    .m-area-heading {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+    }
+
+    .login-block {
+        background-color: #fff;
+        padding: 60px;
+        -webkit-box-shadow: 0 3px 50px 0 rgba(0,0,0,.1);
+        box-shadow: 0 3px 50px 0 rgba(0,0,0,.1);
+        text-align: center;
+        border-radius: 5px
+    }
+
+        .login-block h*, .login-block h6 {
+            font-family: Open Sans,sans-serif;
+            color: #96a2b2;
+            letter-spacing: 1px
+        }
+
+        .login-block h* {
+            font-size: 22px;
+            margin-bottom: 60px;
+            margin-top: 40px
+        }
+
+        .login-block .input-group-addon {
+            color: #29aafe;
+            font-size: 19px;
+            opacity: .5
+        }
+
+        .login-block .btn-block {
+            margin-top: 30px;
+            padding: 15px;
+            background: #1a5486;
+            border-color: #29aafe;
+        }
+
+        .login-block .hr-xs {
+            margin-top: 5px;
+            margin-bottom: 5px
+        }
+</style>
+
+<div class="panel">
+    <div>
+        <div class="grey" data-grid="col-12">
+            <nav class=" my-md-1 mr-md-1">
+                <a class="btn btn-outline-primary rounded-pill" href="https://localhost:44343/">Вернуться на сайт</a>
+            </nav>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class=" white Center Slim " data-grid="col-12">
+            <section class="m-area-heading">
+                <h2 class="c-heading-3 ow-headinghelper-1 ">Панель администратора</h2>
+                <div data-grid="col-12"></div>
+            </section>
+        </div>
+        <div class="x-clearfix" aria-hidden="true">
+            <div data-module="Custom Spacing Module" data-viewport="desktop" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+            <div data-module="Custom Spacing Module" data-viewport="mobile" data-grid="col-12" style="padding-bottom:24px;" class=""></div>
+        </div>
+
+        <table class="table .table-responsive">
+            <tbody>
+                <tr>
+                    <td><h5>Стили абзацев</h5></td>
+                    <td><a class="btn btn-outline-primary" href="https://localhost:44343/Admin/IndexStyle" role="button">Редактировать</a></td>
+                </tr>
+                <tr>
+                    <td><h5>Структура документа</h5></td>
+                    <td><a class="btn btn-outline-primary" href="#" role="button">Редактировать</a></td>
+                </tr>
+                <tr>
+                    <td><h5>Статус документа</h5></td>
+                    <td><a class="btn btn-outline-primary" href="#" role="button">Редактировать</a></td>
+                </tr>
+                <tr>
+                    <td><h5>Документ</h5></td>
+                    <td><a class="btn btn-outline-primary" href="#" role="button">Редактировать</a></td>
+                </tr>
+                <tr>
+                    <td><h5>Пользователи</h5></td>
+                    <td><a class="btn btn-outline-primary" href="#" role="button">Редактировать</a></td>
+                </tr>
+                <tr>
+                    <td><h5>Безопасность</h5></td>
+                    <td><a class="btn btn-outline-primary" href="#" role="button">Редактировать</a></td>
+                </tr>
+            </tbody>
+        </table>
+        @*<table class="table table-reflow">
+            <thead>
+                <tr>
+                    <th>Стили абзацев</th>
+                    <th>Структура документов</th>
+                    <th>Статусы документов</th>
+                    <th>Документы</th>
+                    <th>Пользователи</th>
+                    <th>Безопасность</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ред</td>
+                    <td>ред</td>
+                    <td>ред</td>
+                    <td>ред</td>
+                    <td>ред</td>
+                    <td>ред</td>
+                </tr>
+               
+            </tbody>
+        </table>*@
+
+    </div>
+</div>
