@@ -10,8 +10,8 @@ namespace VerificationDocs.WebUI.Controllers
     public class DocumentStructureController : Controller
     {
         // GET: DocumentStructure
-        private IDocumentStructure docStrucRepository;
-        public DocumentStructureController(IDocumentStructure repo)
+        private IDocumentStructureRepository docStrucRepository;
+        public DocumentStructureController(IDocumentStructureRepository repo)
         {
             docStrucRepository = repo;
         }

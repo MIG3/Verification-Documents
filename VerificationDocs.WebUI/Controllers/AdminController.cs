@@ -14,17 +14,26 @@ namespace VerificationDocs.WebUI.Controllers
         // GET: Admin
         IStyleRepository styleRepository;
         IDocumentStatusRepository docStatusRepository;
-        IDocumentStructure docStructRepository;
+        IDocumentStructureRepository docStructRepository;
+        IDocumentRepository docRepository;
+        IUserRepository userRepository;
+        ISecurityRepository secRepository;
 
         public AdminController(IStyleRepository repo)
         {
             styleRepository = repo;
         }
 
-        public ViewResult Index()
+        public ViewResult MainAdmin()
+        {
+            return View();
+        }
+
+        public ViewResult IndexStyle()
         {
             return View(styleRepository.Styles);
         }
+
         /// <summary>
         /// Этот простой метод ищет стиль с идентификатором,
         /// соответствующим значению параметра paragraphId, и передает его как объект модели представления методу View().
@@ -48,11 +57,10 @@ namespace VerificationDocs.WebUI.Controllers
                 // Объект TempData - это словарь пар "ключ/значение", похожий на используемые ранее данные сеанса и ViewBag. 
                 // Основное его отличие от данных сеанса состоит в том, что в конце HTTP-запроса объект TempData удаляется.
                 TempData["message"] = string.Format("Изменения в стиле абзаца \"{0}\" были сохранены", style.Name);
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexStyle");
             }
             else
             {
-                // Что-то не так со значениями данных
                 return View(style);
             }
         }
@@ -79,7 +87,7 @@ namespace VerificationDocs.WebUI.Controllers
                 TempData["message"] = string.Format("Стиль \"{0}\" абзаца был удалён",
                     deletedGame.Name);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexStyle");
         }
     }
 }

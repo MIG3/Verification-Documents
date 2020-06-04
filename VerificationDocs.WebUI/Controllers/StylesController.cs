@@ -12,11 +12,18 @@ namespace VerificationDocs.WebUI.Controllers
     {
         // GET: Styles
         private IStyleRepository repository;
+
         public StylesController(IStyleRepository repo)
         {
             repository = repo;
         }
-
+        /// <summary>
+        /// Вызов метода View() подобного рода (без указания имени представления) 
+        /// сообщает инфраструктуре о том, что нужно визуализировать стандартное представление для метода действия. 
+        /// Передавая методу View() список объектов Style, мы снабжаем инфраструктуру данными, которыми необходимо 
+        /// заполнить объект Model в строго типизированном представлении.
+        /// </summary>
+        /// <returns></returns>
         public ViewResult List()
         {
             return View(repository.Styles);
