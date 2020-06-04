@@ -1,0 +1,87 @@
+﻿@model VerificationDocs.WebUI.Models.RegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="~/CSS/Style1.css" />
+    <link rel="stylesheet" type="text/css" href="~/CSS/StylуFormCenter.css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <div class="panel">
+        <div>
+            <div class=" white Center Slim " data-grid="col-12">
+                <section class="m-area-heading">
+                    <h2 class="c-heading-3 ow-headinghelper-1 ">Зарегистрировать аккаунт</h2>
+                    <div data-grid="col-12"></div>
+                </section>
+            </div>
+        </div>
+        <div class="panel-body login-block">
+            <div class="outer">
+                <div class="middle">
+                    <div class="inner">
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <span class="input-group-addon"><i class="fa fa-user ti-user"></i></span>
+                                    @*@Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label for="exampleInputLogin1">Логин</label>
+                                        @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label for="exampleInputPassword1">Пароль</label>
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label for="exampleInputPassword1">Подтвердите пароль</label>
+                                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @*@Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    <label>Роль</label>
+                                        @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                        <input class="btn btn-outline-primary col-md-6" type="submit" value="Зарегистрироваться" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+    </div>
+</body>
+</html>
