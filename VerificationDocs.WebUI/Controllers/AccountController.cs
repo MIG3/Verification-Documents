@@ -123,7 +123,7 @@ namespace VerificationDocs.WebUI.Controllers
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "CheckFiles");
+            return RedirectToAction("Index", "MainPage");
         }
     }
 }
